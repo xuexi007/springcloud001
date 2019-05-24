@@ -1,0 +1,27 @@
+server:
+  port: 9003
+spring:
+  thymeleaf:
+    cache: false
+  application:
+    name: UserWeb03
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:10086/eureka,http://localhost:10087/eureka
+logging:
+  level:
+    com:
+      offcn: debug
+# 开启Feign的熔断功能
+feign:
+  hystrix:
+    enabled: true
+#设定Hystrix熔断超时时间
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 6000
